@@ -8,6 +8,14 @@ import { useState } from 'react'
 
 export default function TetoPear() {
   const [isHovered, setIsHovered] = useState(false)
+  const [colorIndex, setColorIndex] = useState(0)
+
+  // Different hue-rotate values for color variations
+  const colors = [0, 60, 120, 180, 240, 300]
+
+  const handleClick = () => {
+    setColorIndex((prev) => (prev + 1) % colors.length)
+  }
 
   return (
     <motion.div
@@ -32,16 +40,17 @@ export default function TetoPear() {
       }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
+      onClick={handleClick}
     >
       <motion.div
         animate={{
           filter: isHovered
             ? [
-                'drop-shadow(0 0 40px rgba(232, 196, 102, 0.8)) blur(0.5px)',
-                'drop-shadow(0 0 60px rgba(232, 196, 102, 1)) blur(0px)',
-                'drop-shadow(0 0 40px rgba(232, 196, 102, 0.8)) blur(0.5px)',
+                `hue-rotate(${colors[colorIndex]}deg) drop-shadow(0 0 40px rgba(232, 196, 102, 0.8)) blur(0.5px)`,
+                `hue-rotate(${colors[colorIndex]}deg) drop-shadow(0 0 60px rgba(232, 196, 102, 1)) blur(0px)`,
+                `hue-rotate(${colors[colorIndex]}deg) drop-shadow(0 0 40px rgba(232, 196, 102, 0.8)) blur(0.5px)`,
               ]
-            : 'drop-shadow(0 0 40px rgba(232, 196, 102, 0.8)) blur(0.5px)',
+            : `hue-rotate(${colors[colorIndex]}deg) drop-shadow(0 0 40px rgba(232, 196, 102, 0.8)) blur(0.5px)`,
         }}
         transition={{ duration: 0.5 }}
       >
