@@ -1,4 +1,4 @@
-/* Retro liminal space website with abstract non-conventional design */
+/* Retro liminal space website inspired by vintage yellow corridor aesthetics */
 
 * {
     margin: 0;
@@ -10,7 +10,7 @@
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: linear-gradient(180deg, #3a2f1f 0%, #d4a550 30%, #e8c466 50%, #d4a550 70%, #3a2f1f 100%);
     font-family: 'Courier New', monospace;
     position: relative;
 }
@@ -26,12 +26,13 @@
 
 .pear-container {
     animation: rotate 8s linear infinite;
-    filter: drop-shadow(0 0 30px rgba(152, 217, 142, 0.6));
+    filter: drop-shadow(0 0 40px rgba(232, 196, 102, 0.8)) blur(0.5px);
 }
 
 .teto-pear {
-    width: 200px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
 }
 
 @keyframes rotate {
@@ -43,11 +44,12 @@
     }
 }
 
-/* Floating abstract shapes */
+/* Floating abstract shapes - retro orange/brown tones */
 .shape {
     position: absolute;
-    border: 3px solid rgba(255, 107, 107, 0.3);
+    border: 3px solid rgba(212, 165, 80, 0.2);
     animation: float 20s ease-in-out infinite;
+    filter: blur(1px);
 }
 
 .shape-1 {
@@ -58,6 +60,7 @@
     border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
     animation-delay: 0s;
     animation-duration: 15s;
+    background: radial-gradient(circle, rgba(232, 196, 102, 0.05), transparent);
 }
 
 .shape-2 {
@@ -66,9 +69,10 @@
     bottom: 10%;
     right: 20%;
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    border-color: rgba(78, 205, 196, 0.3);
+    border-color: rgba(184, 134, 63, 0.2);
     animation-delay: 3s;
     animation-duration: 18s;
+    background: radial-gradient(circle, rgba(184, 134, 63, 0.05), transparent);
 }
 
 .shape-3 {
@@ -77,7 +81,7 @@
     top: 60%;
     left: 5%;
     border-radius: 48% 52% 30% 70% / 26% 25% 75% 74%;
-    border-color: rgba(255, 159, 243, 0.3);
+    border-color: rgba(255, 220, 150, 0.15);
     animation-delay: 6s;
     animation-duration: 22s;
 }
@@ -88,7 +92,7 @@
     top: 20%;
     right: 10%;
     clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
-    border-color: rgba(255, 234, 167, 0.3);
+    border-color: rgba(150, 110, 50, 0.2);
     animation-delay: 9s;
     animation-duration: 20s;
 }
@@ -136,15 +140,16 @@
     }
 }
 
-/* Glitch text elements */
+/* Glitch text elements - vintage fluorescent aesthetic */
 .text-element {
     position: absolute;
-    font-size: 4rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.1);
+    font-size: 2.5rem;
+    font-weight: normal;
+    color: rgba(58, 47, 31, 0.08);
     text-transform: uppercase;
     letter-spacing: 0.5rem;
-    animation: glitch 3s infinite;
+    animation: glitch 5s infinite;
+    filter: blur(0.8px);
 }
 
 .text-top {
@@ -173,24 +178,24 @@
 
 @keyframes glitch {
     0%, 90%, 100% {
-        opacity: 0.1;
+        opacity: 0.08;
         text-shadow: none;
     }
     92% {
-        opacity: 0.8;
-        text-shadow: 2px 2px #ff006e, -2px -2px #00f5ff;
+        opacity: 0.25;
+        text-shadow: 2px 2px rgba(184, 134, 63, 0.3), -2px -2px rgba(232, 196, 102, 0.2);
     }
     94% {
-        opacity: 0.1;
+        opacity: 0.08;
         text-shadow: none;
     }
     96% {
-        opacity: 0.9;
-        text-shadow: -2px 2px #ff006e, 2px -2px #00f5ff;
+        opacity: 0.3;
+        text-shadow: -2px 2px rgba(150, 110, 50, 0.3), 2px -2px rgba(255, 220, 150, 0.2);
     }
 }
 
-/* Abstract grid overlay */
+/* Abstract grid overlay - perspective corridor lines */
 .grid-overlay {
     position: absolute;
     top: 0;
@@ -198,11 +203,12 @@
     width: 100%;
     height: 100%;
     background-image:
-        linear-gradient(rgba(78, 205, 196, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(78, 205, 196, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
+        linear-gradient(rgba(58, 47, 31, 0.08) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(58, 47, 31, 0.08) 2px, transparent 2px);
+    background-size: 80px 80px;
     animation: grid-shift 30s linear infinite;
     z-index: 1;
+    filter: blur(0.3px);
 }
 
 @keyframes grid-shift {
@@ -214,15 +220,17 @@
     }
 }
 
-/* Corner timestamps */
+/* Corner timestamps - vintage display */
 .timestamp {
     position: absolute;
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(58, 47, 31, 0.4);
     font-weight: bold;
     font-family: 'Courier New', monospace;
     z-index: 50;
     animation: timestamp-flicker 4s infinite;
+    filter: blur(0.3px);
+    text-shadow: 0 0 5px rgba(232, 196, 102, 0.3);
 }
 
 .timestamp-tl {
@@ -257,50 +265,84 @@
     }
 }
 
-/* Additional abstract elements */
+/* Film grain and vintage texture overlay */
 .liminal-container::before {
     content: '';
     position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(152, 217, 142, 0.05) 1%, transparent 2%);
-    background-size: 100px 100px;
-    animation: background-drift 40s linear infinite;
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 2px,
+            rgba(58, 47, 31, 0.03) 2px,
+            rgba(58, 47, 31, 0.03) 4px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 2px,
+            rgba(58, 47, 31, 0.03) 2px,
+            rgba(58, 47, 31, 0.03) 4px
+        );
+    animation: grain 0.5s steps(3) infinite;
+    z-index: 150;
+    pointer-events: none;
+    opacity: 0.7;
 }
 
-@keyframes background-drift {
-    0% {
-        transform: rotate(0deg) translate(0, 0);
-    }
-    100% {
-        transform: rotate(360deg) translate(50px, 50px);
-    }
+@keyframes grain {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 0.5; }
 }
 
-/* Unconventional cursor effect */
+/* Motion blur effect overlay */
 .liminal-container::after {
     content: '';
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 2px solid rgba(255, 107, 107, 0.5);
-    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        transparent 100%
+    );
     pointer-events: none;
-    z-index: 1000;
-    mix-blend-mode: difference;
-    animation: pulse-cursor 2s ease-in-out infinite;
+    z-index: 5;
+    animation: motion-blur 3s ease-in-out infinite alternate;
 }
 
-@keyframes pulse-cursor {
-    0%, 100% {
-        transform: scale(1);
+@keyframes motion-blur {
+    0% {
+        filter: blur(0px);
+        opacity: 0.3;
+    }
+    100% {
+        filter: blur(1px);
         opacity: 0.5;
     }
-    50% {
-        transform: scale(1.5);
-        opacity: 0.8;
-    }
+}
+
+/* Vignette effect for vintage photo aesthetic */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+    z-index: 200;
 }
