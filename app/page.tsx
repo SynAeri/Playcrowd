@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 import TetoPear from './components/TetoPear'
 import Navigation from './components/Navigation'
 import ParticleSystem from './components/ParticleSystem'
-import './styles.css'
 
 export default function Home() {
   const shapeVariants = {
