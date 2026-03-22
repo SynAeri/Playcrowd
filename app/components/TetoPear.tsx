@@ -13,16 +13,9 @@ interface ColorScheme {
   glow: string
 }
 
-interface FloatingWord {
-  id: number
-  text: string
-  angle: number
-  startTime: number
-}
-
-export default function TetoPear() {
+export default function TetoPear({ initialColorIndex = 0 }: { initialColorIndex?: number }) {
   const [isHovered, setIsHovered] = useState(false)
-  const [colorIndex, setColorIndex] = useState(0)
+  const [colorIndex, setColorIndex] = useState(initialColorIndex)
   const [isClicking, setIsClicking] = useState(false)
 <<<<<<< HEAD
   const [position, setPosition] = useState({ x: 0, y: 0 })

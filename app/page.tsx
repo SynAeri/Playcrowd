@@ -7,7 +7,6 @@ import { motion } from 'framer-motion'
 import TetoPear from './components/TetoPear'
 import Navigation from './components/Navigation'
 import ParticleSystem from './components/ParticleSystem'
-import './styles.css'
 
 export default function Home() {
   const shapeVariants = {
@@ -117,9 +116,21 @@ export default function Home() {
         VOID
       </motion.div>
 
-      {/* Bottom-right Teto pear */}
+      {/* Five Teto pears across the bottom */}
+      <div style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 10 }}>
+        <TetoPear initialColorIndex={0} />
+      </div>
+      <div style={{ position: 'fixed', bottom: 0, left: '25%', transform: 'translateX(-50%)', zIndex: 10 }}>
+        <TetoPear initialColorIndex={1} />
+      </div>
+      <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
+        <TetoPear initialColorIndex={2} />
+      </div>
+      <div style={{ position: 'fixed', bottom: 0, left: '75%', transform: 'translateX(-50%)', zIndex: 10 }}>
+        <TetoPear initialColorIndex={3} />
+      </div>
       <div style={{ position: 'fixed', bottom: 0, right: 0, zIndex: 10 }}>
-        <TetoPear />
+        <TetoPear initialColorIndex={4} />
       </div>
 
       {/* Abstract grid background */}
