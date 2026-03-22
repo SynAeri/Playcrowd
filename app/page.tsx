@@ -112,11 +112,6 @@ export default function Home() {
         VOID
       </motion.div>
 
-      {/* Center rotating Teto pear */}
-      <div className="center-container">
-        <TetoPear />
-      </div>
-
       {/* Bottom-right Teto pear */}
       <div style={{ position: 'fixed', bottom: 0, right: 0, zIndex: 10 }}>
         <TetoPear />
