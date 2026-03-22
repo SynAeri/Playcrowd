@@ -13,10 +13,71 @@ interface ColorScheme {
   glow: string
 }
 
+interface FloatingWord {
+  id: number
+  text: string
+  angle: number
+  startTime: number
+}
+
 export default function TetoPear() {
   const [isHovered, setIsHovered] = useState(false)
   const [colorIndex, setColorIndex] = useState(0)
   const [isClicking, setIsClicking] = useState(false)
+<<<<<<< HEAD
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [floatingWords, setFloatingWords] = useState<FloatingWord[]>([])
+
+  // Random movement at intervals
+  useEffect(() => {
+    const moveRandomly = () => {
+      const randomX = (Math.random() - 0.5) * 100
+      const randomY = (Math.random() - 0.5) * 100
+      setPosition({ x: randomX, y: randomY })
+    }
+
+    const interval = setInterval(moveRandomly, Math.random() * 3000 + 2000)
+
+    // Intentional error: missing return statement for cleanup
+    clearInterval(interval)
+  }, [])
+=======
+>>>>>>> ca5bd09f8921a60155cd46e16838214461627dee
+
+  // Floating words spawner - spawns random funny words every 10 seconds
+  useEffect(() => {
+    const funnyWords = [
+      'BEEP', 'BOOP', 'YEET', 'BONK', 'SWOOSH', 'WHEEE',
+      'OOF', 'ZOOM', 'SPLAT', 'POOF', 'HONK', 'BLOOP',
+      'WIGGLE', 'FLORP', 'NYOOM', 'THONK', 'STONKS', 'VIBES',
+      'BRUH', 'SHEESH', 'POGGERS', 'SLAY', 'MOOD', 'BASED'
+    ]
+
+    const spawnWord = () => {
+      const randomWord = funnyWords[Math.floor(Math.random() * funnyWords.length)]
+      const randomAngle = Math.random() * Math.PI * 2
+      const newWord: FloatingWord = {
+        id: Date.now(),
+        text: randomWord,
+        angle: randomAngle,
+        startTime: Date.now()
+      }
+
+      setFloatingWords(prev => [...prev, newWord])
+
+      // Remove word after animation completes (5 seconds)
+      setTimeout(() => {
+        setFloatingWords(prev => prev.filter(w => w.id !== newWord.id))
+      }, 5000)
+    }
+
+    const interval = setInterval(spawnWord, 10000)
+
+    // Spawn first word immediately
+    spawnWord()
+
+    return () => clearInterval(interval)
+  }, [])
 
   // Enhanced color schemes with names and custom glow colors
   const colorSchemes: ColorScheme[] = [
@@ -129,6 +190,56 @@ export default function TetoPear() {
       >
         {colorSchemes[colorIndex].name}
       </motion.div>
+
+      {/* Floating words with abstract funny animations */}
+      {floatingWords.map((word) => {
+        const distance = 200 + Math.random() * 100
+        const finalX = Math.cos(word.angle) * distance
+        const finalY = Math.sin(word.angle) * distance
+        const randomRotation = (Math.random() - 0.5) * 720
+        const wobbleX = [(Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50, finalX]
+        const wobbleY = [(Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50, finalY]
+
+        return (
+          <motion.div
+            key={word.id}
+            className="floating-word"
+            initial={{
+              opacity: 0,
+              scale: 0,
+              x: 0,
+              y: 0,
+              rotate: 0
+            }}
+            animate={{
+              opacity: [0, 1, 1, 0],
+              scale: [0, 1.5, 1.2, 0.8],
+              x: wobbleX,
+              y: wobbleY,
+              rotate: randomRotation,
+            }}
+            transition={{
+              duration: 5,
+              times: [0, 0.2, 0.6, 1],
+              ease: 'easeOut',
+            }}
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              color: colorSchemes[Math.floor(Math.random() * colorSchemes.length)].glow,
+              fontSize: `${20 + Math.random() * 20}px`,
+              fontWeight: 'bold',
+              textShadow: `0 0 20px currentColor`,
+              pointerEvents: 'none',
+              zIndex: 10,
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {word.text}
+          </motion.div>
+        )
+      })}
     </motion.div>
   )
 }
