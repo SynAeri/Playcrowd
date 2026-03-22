@@ -1,12 +1,11 @@
 // Teto pear GIF component with Framer Motion interactive animations
 // Enhanced color-changing system with visual feedback and smooth transitions
-// Includes random floating movement at intervals
 'use client'
 
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import tetoPearGif from './pearto-kasane-teto.gif'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 interface ColorScheme {
   hue: number
@@ -25,6 +24,7 @@ export default function TetoPear() {
   const [isHovered, setIsHovered] = useState(false)
   const [colorIndex, setColorIndex] = useState(0)
   const [isClicking, setIsClicking] = useState(false)
+<<<<<<< HEAD
   const [position, setPosition] = useState({ x: 0, y: 0 })
   const [floatingWords, setFloatingWords] = useState<FloatingWord[]>([])
 
@@ -41,6 +41,8 @@ export default function TetoPear() {
     // Intentional error: missing return statement for cleanup
     clearInterval(interval)
   }, [])
+=======
+>>>>>>> ca5bd09f8921a60155cd46e16838214461627dee
 
   // Floating words spawner - spawns random funny words every 10 seconds
   useEffect(() => {
@@ -96,29 +98,6 @@ export default function TetoPear() {
   return (
     <motion.div
       className="pear-container"
-      initial={{ scale: 0, rotate: -180 }}
-      animate={{
-        scale: 1,
-        rotate: 0,
-        x: position.x,
-        y: position.y
-      }}
-      transition={{
-        type: 'spring',
-        stiffness: 260,
-        damping: 20,
-        delay: 0.3,
-      }}
-      whileHover={{
-        scale: 1.2,
-        rotate: 360,
-        transition: { duration: 0.4 },
-      }}
-      whileTap={{
-        scale: 0.9,
-        rotate: -90,
-        transition: { duration: 0.2 },
-      }}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       onClick={handleClick}
