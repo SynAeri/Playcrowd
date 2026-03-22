@@ -117,6 +117,11 @@ export default function Home() {
         <TetoPear />
       </div>
 
+      {/* Bottom-right Teto pear */}
+      <div style={{ position: 'fixed', bottom: 0, right: 0, zIndex: 10 }}>
+        <TetoPear />
+      </div>
+
       {/* Abstract grid background */}
       <div className="grid-overlay"></div>
 

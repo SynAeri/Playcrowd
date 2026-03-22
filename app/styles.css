@@ -103,8 +103,7 @@
 .center-container {
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    right: 0;
     z-index: 10;
 }
 
