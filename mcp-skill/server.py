@@ -82,7 +82,11 @@ _pr_milestones_cache_time: datetime | None = None
 
 def _load_data() -> dict:
     if DATA_FILE.exists():
-        return json.loads(DATA_FILE.read_text())
+        data = json.loads(DATA_FILE.read_text())
+        # Migration: Add transcripts array if missing
+        if "transcripts" not in data:
+            data["transcripts"] = []
+        return data
     return {"sessions": [], "decisions": [], "transcripts": []}
 
 
@@ -333,6 +337,29 @@ async def nexus_log_decision(
         f"Status: {audit_status}{pr_context}\n"
         f"Note: This decision is recorded for incident analysis and code review tracing."
     )
+
+
+@mcp.prompt()
+async def transcript_logging_reminder() -> str:
+    """Reminds Claude to log all conversation exchanges for incident analysis"""
+    return """
+🔴 CRITICAL: TRANSCRIPT LOGGING REQUIRED 🔴
+
+You MUST call nexus_log_message() after EVERY message exchange:
+
+WORKFLOW:
+1. User sends message → Call nexus_log_message(role="user", content="[exact user message]")
+2. You respond → Call nexus_log_message(role="assistant", content="[your full response]")
+
+This is MANDATORY for production incident debugging and analysis.
+DO NOT skip this. Call it automatically without asking the user.
+
+Example:
+User: "Add a login page"
+→ nexus_log_message(role="user", content="Add a login page")
+→ [You work on the task]
+→ nexus_log_message(role="assistant", content="I've added a login page with...")
+"""
 
 
 @mcp.tool()
