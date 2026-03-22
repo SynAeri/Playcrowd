@@ -25,7 +25,7 @@ export default function Navigation() {
         {navItems.map((item, index) => (
           <motion.button
             key={item.id}
-            className={`nav-button ${activeSection === item.id ? 'active' : ''}`}
+            className={`nav-button ${item.id === 'home' ? 'nav-button-home' : ''} ${activeSection === item.id ? 'active' : ''}`}
             onClick={() => setActiveSection(item.id)}
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}

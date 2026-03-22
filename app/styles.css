@@ -56,6 +56,23 @@
     text-shadow: 0 0 5px rgba(232, 196, 102, 0.3);
 }
 
+.nav-button-home {
+    border-color: rgba(220, 50, 50, 0.6);
+    color: rgba(255, 100, 100, 0.9);
+    text-shadow: 0 0 5px rgba(220, 50, 50, 0.4);
+}
+
+.nav-button-home:hover {
+    border-color: rgba(220, 50, 50, 0.9) !important;
+    background: rgba(220, 50, 50, 0.15) !important;
+}
+
+.nav-button-home.active {
+    border-color: rgba(220, 50, 50, 1) !important;
+    background: rgba(220, 50, 50, 0.2) !important;
+    color: rgba(255, 130, 130, 1) !important;
+}
+
 .nav-button:hover {
     border-color: rgba(232, 196, 102, 0.8);
     background: rgba(232, 196, 102, 0.1);
