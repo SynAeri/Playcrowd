@@ -13,9 +13,9 @@ interface ColorScheme {
   glow: string
 }
 
-export default function TetoPear() {
+export default function TetoPear({ initialColorIndex = 0 }: { initialColorIndex?: number }) {
   const [isHovered, setIsHovered] = useState(false)
-  const [colorIndex, setColorIndex] = useState(0)
+  const [colorIndex, setColorIndex] = useState(initialColorIndex)
   const [isClicking, setIsClicking] = useState(false)
 
   // Enhanced color schemes with names and custom glow colors
