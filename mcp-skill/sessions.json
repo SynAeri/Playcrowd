@@ -1,0 +1,16 @@
+[
+  {
+    "id": "sess_a00466b5",
+    "repo": "git@github.com:SynAeri/TestUh.git",
+    "branch": "web_anusha",
+    "agent": "claude-code",
+    "engineer": "anushasubedi",
+    "ticket_id": null,
+    "started_at": "2026-03-22T03:00:16.516700+00:00",
+    "ended_at": null,
+    "pr_id": null,
+    "decision_count": 0,
+    "pr_milestones": [],
+    "metadata": {}
+  }
+]
