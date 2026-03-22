@@ -117,14 +117,8 @@ export default function Home() {
         VOID
       </motion.div>
 
-      {/* Teto pears */}
+      {/* Bottom-right Teto pear */}
       <div style={{ position: 'fixed', bottom: 0, right: 0, zIndex: 10 }}>
-        <TetoPear />
-      </div>
-      <div style={{ position: 'fixed', bottom: 0, left: 0, zIndex: 10 }}>
-        <TetoPear />
-      </div>
-      <div style={{ position: 'fixed', bottom: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 10 }}>
         <TetoPear />
       </div>
 
