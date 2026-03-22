@@ -6,6 +6,8 @@
 import { motion } from 'framer-motion'
 import TetoPear from './components/TetoPear'
 import Navigation from './components/Navigation'
+import ParticleSystem from './components/ParticleSystem'
+import './styles.css'
 
 export default function Home() {
   const shapeVariants = {
@@ -26,6 +28,9 @@ export default function Home() {
 
   return (
     <main className="liminal-container">
+      {/* Particle System - spawns tetoPear.gif particles on click */}
+      <ParticleSystem />
+
       {/* Navigation */}
       <Navigation />
 
